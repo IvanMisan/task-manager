@@ -1,0 +1,37 @@
+<h3>Task Manager</h3>
+<div class="col-lg-6">
+  <div class="card">
+    <div class="card-body">
+      <app-task-form (onSave)="addTask($event);"></app-task-form>
+    </div>
+  </div>
+</div>
+<table class="table mt-3">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Priority</th>
+    <th scope="col">Complete</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let task of tasks; let index = index">
+    <td>{{index + 1}}</td>
+    <td>{{task.name}}</td>
+    <td>{{task.priority}}</td>
+    <td>
+      <button *ngIf="!task.complete" (click)="task.complete = !task.complete" class="btn btn-success">Complete</button>
+      <button *ngIf="task.complete" (click)="task.complete = !task.complete" class="btn btn-warning">Incomplete</button>
+    </td>
+    <td>
+      <div class="btn-group">
+        <button (click)="showEditModal(task);" class="btn btn-primary">Edit</button>
+        <button (click)="delete(task.id);" class="btn btn-danger" >Delete</button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h4 *ngIf="!tasks.length" class="text-center">There are no tasks yet</h4>
