@@ -1,0 +1,9 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Edit Task</h4>
+  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modal.hide();">
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <app-task-form (onSave)="onSaveFn($event); modal.hide();" [task]="task"></app-task-form>
+</div>
