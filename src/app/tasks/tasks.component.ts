@@ -14,7 +14,9 @@ import { EditTaskModalComponent } from '../edit-task-modal/edit-task-modal.compo
 })
 export class TasksComponent {
   tasks = [
-    { id: crypto.randomUUID(), name: 'My tesk 1', priority: 1, complete: false }
+    { id: crypto.randomUUID(), name: 'My tesk 1', priority: 1, complete: false,
+      description: '', date: null
+    }
   ]
 
   constructor(

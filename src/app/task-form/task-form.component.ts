@@ -1,11 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-task-form',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    BsDatepickerModule
+  ],
   templateUrl: './task-form.component.html',
   styleUrl: './task-form.component.scss'
 })
