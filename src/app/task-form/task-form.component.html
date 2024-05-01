@@ -22,9 +22,11 @@
            id="date"
            bsDatepicker>
   </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="completeCheckbox" name="complete" [(ngModel)]="task.complete">
-    <label class="form-check-label" for="completeCheckbox">Complete</label>
+  <div class="form-group mb-2">
+    <label for="prioritySelect">Complete</label>
+    <select class="form-control" id="prioritySelect" name="complete" [(ngModel)]="task.complete" required>
+    <option *ngFor="let complete of completes" [value]="complete">{{complete}}</option>
+    </select>
   </div>
   <button [disabled]="taskForm.invalid" type="submit" class="btn btn-primary mt-3">
     {{task.id ? 'Save' : 'Create'}}
